@@ -1091,6 +1091,8 @@ CSP_IMG_SRC = (
     'https://*.mozilla.net',
     'http://*.mozilla.org',
     'https://*.mozilla.org',
+    'http://*.log.optimizely.com',
+    'https://*.log.optimizely.com',
 )
 CSP_SCRIPT_SRC = (
     "'self'",
