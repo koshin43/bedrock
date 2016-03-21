@@ -1093,6 +1093,8 @@ CSP_IMG_SRC = (
     'https://*.mozilla.org',
     'http://*.log.optimizely.com',
     'https://*.log.optimizely.com',
+    'http://app.optimizely.com',
+    'https://app.optimizely.com',
 )
 CSP_SCRIPT_SRC = (
     "'self'",
@@ -1101,8 +1103,8 @@ CSP_SCRIPT_SRC = (
     'https://*.mozilla.org',
     'http://*.mozilla.net',
     'https://*.mozilla.net',
-    'http://cdn.optimizely.com',
-    'https://cdn.optimizely.com',
+    'http://*.optimizely.com',
+    'https://*.optimizely.com',
 )
 CSP_STYLE_SRC = (
     "'self'",
@@ -1111,4 +1113,10 @@ CSP_STYLE_SRC = (
     'https://*.mozilla.org',
     'http://*.mozilla.net',
     'https://*.mozilla.net',
+)
+CSP_CHILD_SRC = (
+    'http://app.optimizely.com',
+    'https://app.optimizely.com',
+    'http://*.cdn.optimizely.com',
+    'https://*.cdn.optimizely.com',
 )
