@@ -7,7 +7,6 @@ import logging
 import platform
 from os.path import abspath
 
-from django.core.urlresolvers import reverse
 from django.utils.functional import lazy
 
 import dj_database_url
@@ -1082,38 +1081,33 @@ CSP_DEFAULT_SRC = (
     '*.mozilla.net',
     '*.mozilla.org',
 )
-CSP_IMG_SRC = (
-    "'self'",
-    '*.mozilla.net',
-    '*.mozilla.org',
+CSP_IMG_SRC = CSP_DEFAULT_SRC + (
+    'data:',
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
     '*.tiles.mapbox.com',
     'api.mapbox.com',
 )
-CSP_SCRIPT_SRC = (
-    "'self'",
+CSP_SCRIPT_SRC = CSP_DEFAULT_SRC + (
+    # TODO fix things so that we don't need this
     "'unsafe-inline'",
-    '*.mozilla.org',
-    '*.mozilla.net',
     '*.optimizely.com',
     'optimizely.s3.amazonaws.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
 )
-CSP_STYLE_SRC = (
-    "'self'",
+CSP_STYLE_SRC = CSP_DEFAULT_SRC + (
+    # TODO fix things so that we don't need this
     "'unsafe-inline'",
-    '*.mozilla.org',
-    '*.mozilla.net',
 )
 CSP_CHILD_SRC = (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
+    'www.youtube-nocookie.com',
 )
-CSP_CONNECT_SRC = (
+CSP_CONNECT_SRC = CSP_DEFAULT_SRC + (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
@@ -1123,4 +1117,4 @@ CSP_CONNECT_SRC = (
 CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
 CSP_REPORT_ENABLE = config('CSP_REPORT_ENABLE', default=True, cast=bool)
 if CSP_REPORT_ENABLE:
-    CSP_REPORT_URI = lazy(lambda: reverse('csp-violation-capture'), unicode)()
+    CSP_REPORT_URI = config('CSP_REPORT_URI', default='/csp-violation-capture')
