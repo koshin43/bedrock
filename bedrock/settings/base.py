@@ -7,6 +7,7 @@ import logging
 import platform
 from os.path import abspath
 
+from django.core.urlresolvers import reverse
 from django.utils.functional import lazy
 
 import dj_database_url
@@ -221,6 +222,7 @@ SUPPORTED_NONLOCALES = [
     'keymaster',
     'microsummaries',
     'xbl',
+    'csp-violation-capture',
 ]
 
 ALLOWED_HOSTS = config(
@@ -1117,3 +1119,5 @@ CSP_CONNECT_SRC = (
     'www.googletagmanager.com',
     'www.google-analytics.com',
 )
+CSP_REPORT_URI = lazy(lambda: reverse('csp-violation-capture'), unicode)()
+CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
