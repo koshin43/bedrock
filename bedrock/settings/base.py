@@ -1120,5 +1120,7 @@ CSP_CONNECT_SRC = (
     '*.tiles.mapbox.com',
     'api.mapbox.com',
 )
-CSP_REPORT_URI = lazy(lambda: reverse('csp-violation-capture'), unicode)()
 CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
+CSP_REPORT_ENABLE = config('CSP_REPORT_ENABLE', default=True, cast=bool)
+if CSP_REPORT_ENABLE:
+    CSP_REPORT_URI = lazy(lambda: reverse('csp-violation-capture'), unicode)()
