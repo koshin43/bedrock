@@ -1079,9 +1079,6 @@ RAVEN_CONFIG = {
 # Django-CSP
 CSP_DEFAULT_SRC = (
     "'self'",
-)
-CSP_FONT_SRC = (
-    "'self'",
     '*.mozilla.net',
     '*.mozilla.org',
 )
@@ -1092,6 +1089,8 @@ CSP_IMG_SRC = (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
+    '*.tiles.mapbox.com',
+    'api.mapbox.com',
 )
 CSP_SCRIPT_SRC = (
     "'self'",
@@ -1109,7 +1108,7 @@ CSP_STYLE_SRC = (
     '*.mozilla.org',
     '*.mozilla.net',
 )
-CSP_FRAME_SRC = (
+CSP_CHILD_SRC = (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
@@ -1118,6 +1117,8 @@ CSP_CONNECT_SRC = (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
+    '*.tiles.mapbox.com',
+    'api.mapbox.com',
 )
 CSP_REPORT_URI = lazy(lambda: reverse('csp-violation-capture'), unicode)()
 CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
