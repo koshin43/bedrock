@@ -1104,7 +1104,7 @@ CSP_STYLE_SRC = CSP_DEFAULT_SRC + (
     # TODO fix things so that we don't need this
     "'unsafe-inline'",
 )
-CSP_CHILD_SRC = (
+CSP_CHILD_SRC = CSP_FRAME_SRC = (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
