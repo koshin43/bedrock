@@ -1104,7 +1104,7 @@ CSP_STYLE_SRC = CSP_DEFAULT_SRC + (
     # TODO fix things so that we don't need this
     "'unsafe-inline'",
 )
-CSP_CHILD_SRC = CSP_FRAME_SRC = (
+CSP_CHILD_SRC = (
     '*.optimizely.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
@@ -1125,3 +1125,10 @@ CSP_REPORT_ONLY = config('CSP_REPORT_ONLY', default=False, cast=bool)
 CSP_REPORT_ENABLE = config('CSP_REPORT_ENABLE', default=True, cast=bool)
 if CSP_REPORT_ENABLE:
     CSP_REPORT_URI = config('CSP_REPORT_URI', default='/csp-violation-capture')
+
+CSP_EXTRA_FRAME_SRC = config('CSP_EXTRA_FRAME_SRC', default='', cast=Csv())
+if CSP_EXTRA_FRAME_SRC:
+    CSP_CHILD_SRC += tuple(CSP_EXTRA_FRAME_SRC)
+
+# support older browsers (mainly Safari)
+CSP_FRAME_SRC = CSP_CHILD_SRC
