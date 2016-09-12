@@ -1080,6 +1080,7 @@ CSP_DEFAULT_SRC = (
     "'self'",
     '*.mozilla.net',
     '*.mozilla.org',
+    '*.mozilla.com',
 )
 CSP_IMG_SRC = CSP_DEFAULT_SRC + (
     'data:',
@@ -1088,6 +1089,8 @@ CSP_IMG_SRC = CSP_DEFAULT_SRC + (
     'www.google-analytics.com',
     '*.tiles.mapbox.com',
     'api.mapbox.com',
+    'servedby.flashtalking.com',
+    'creativecommons.org',
 )
 CSP_SCRIPT_SRC = CSP_DEFAULT_SRC + (
     # TODO fix things so that we don't need this
@@ -1106,6 +1109,10 @@ CSP_CHILD_SRC = (
     'www.googletagmanager.com',
     'www.google-analytics.com',
     'www.youtube-nocookie.com',
+    'trackertest.org',  # mozilla service for tracker detection
+    'www.surveygizmo.com',
+    'accounts.firefox.com',
+    'accounts.firefox.com.cn',
 )
 CSP_CONNECT_SRC = CSP_DEFAULT_SRC + (
     '*.optimizely.com',
