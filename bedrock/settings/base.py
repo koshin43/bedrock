@@ -1088,6 +1088,7 @@ CSP_IMG_SRC = CSP_DEFAULT_SRC + (
     '*.doubleclick.net',
     'www.googletagmanager.com',
     'www.google-analytics.com',
+    'www.google.com',
     '*.tiles.mapbox.com',
     'api.mapbox.com',
     'servedby.flashtalking.com',
@@ -1096,6 +1097,9 @@ CSP_IMG_SRC = CSP_DEFAULT_SRC + (
 CSP_SCRIPT_SRC = CSP_DEFAULT_SRC + (
     # TODO fix things so that we don't need this
     "'unsafe-inline'",
+    # TODO snap.svg.js passes a string to Function() which is
+    # blocked without unsafe-eval. Find a way to remove that.
+    "'unsafe-eval'",
     '*.optimizely.com',
     'optimizely.s3.amazonaws.com',
     'www.googletagmanager.com',
