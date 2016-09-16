@@ -1104,6 +1104,8 @@ CSP_SCRIPT_SRC = CSP_DEFAULT_SRC + (
     'optimizely.s3.amazonaws.com',
     'www.googletagmanager.com',
     'www.google-analytics.com',
+    'www.youtube.com',
+    's.ytimg.com',
 )
 CSP_STYLE_SRC = CSP_DEFAULT_SRC + (
     # TODO fix things so that we don't need this
@@ -1118,6 +1120,7 @@ CSP_CHILD_SRC = (
     'www.surveygizmo.com',
     'accounts.firefox.com',
     'accounts.firefox.com.cn',
+    'www.youtube.com',
 )
 CSP_CONNECT_SRC = CSP_DEFAULT_SRC + (
     '*.optimizely.com',
