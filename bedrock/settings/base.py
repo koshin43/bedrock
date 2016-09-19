@@ -1085,10 +1085,8 @@ CSP_DEFAULT_SRC = (
 CSP_IMG_SRC = CSP_DEFAULT_SRC + (
     'data:',
     '*.optimizely.com',
-    '*.doubleclick.net',
     'www.googletagmanager.com',
     'www.google-analytics.com',
-    'www.google.com',
     '*.tiles.mapbox.com',
     'api.mapbox.com',
     'servedby.flashtalking.com',
