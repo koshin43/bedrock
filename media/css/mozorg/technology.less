@@ -805,4 +805,91 @@ main {
             right: 0;
         }
     }
+
+    @media only screen and (max-width: @breakDesktop) {
+
+        header {
+
+            h2 {
+                .font-size(44px);
+            }
+
+            p {
+                .font-size(20px);
+            }
+        }
+
+        article {
+
+            h3 {
+                .font-size(28px);
+            }
+
+            p,
+            time,
+            .continue {
+                .font-size(@largeFontSize);
+            }
+
+            .meta {
+                .font-size(20px);
+            }
+        }
+    }
+
+    @media only screen and (max-width: @breakTablet) {
+
+        header {
+
+            h2 {
+                .font-size(40px);
+            }
+
+            p {
+                .font-size(18px);
+            }
+        }
+
+        article {
+            margin-bottom: @baseLine;
+
+            h3 {
+                .font-size(24px);
+            }
+
+            .meta {
+                .font-size(18px);
+            }
+        }
+    }
+
+    @media only screen and (max-width: @breakMobileLandscape) {
+
+        header {
+
+            h2 {
+                .font-size(36px);
+            }
+
+            p {
+                .font-size(@largeFontSize);
+            }
+        }
+
+        article {
+
+            h3 {
+                .font-size(20px);
+            }
+
+            .meta {
+                .font-size(@largeFontSize);
+            }
+
+            .continue {
+                right: auto;
+                left: 0;
+            }
+        }
+    }
 }
