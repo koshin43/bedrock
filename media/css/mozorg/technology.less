@@ -568,50 +568,50 @@ main {
         }
     }
 
-    ul {
+    .container > ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         position: relative;
 
-        li {
+        &> li {
             display: inline-block;
             margin: 0 0 (@baseLine * 2);
             padding: 0;
             vertical-align: top;
             width: 440px;
 
+            &:nth-child(odd) {
+                margin-right: 60px;
+            }
+
+            h3 {
+                .font-size(36px);
+                font-weight: bold;
+                padding-right: @baseLine;
+
+                abbr[title] {
+                    border: none;
+                    text-decoration: none;
+                }
+            }
+
             p {
                 .font-size(24px);
                 line-height: 1.5;
-                min-height: 3em;
-                padding-right: @baseLine;
             }
 
             a {
                 .font-size(24px);
-                padding-right: @baseLine;
             }
 
             li {
                 display: block;
-                float: none;
                 margin: 0;
                 padding: 0;
                 text-align: center;
                 width: auto;
             }
-        }
-    }
-
-    h3 {
-        .font-size(36px);
-        font-weight: bold;
-        padding-right: @baseLine;
-
-        abbr[title] {
-            border: none;
-            text-decoration: none;
         }
     }
 
@@ -648,6 +648,93 @@ main {
         &.encrypt {
             background-image: url('/media/img/mozorg/technology/icons-dev/encrypt.svg');
             padding-left: 83px;
+        }
+
+        &.gaming {
+            background-image: url('/media/img/mozorg/technology/icons-dev/games.svg');
+            padding-left: 94px;
+        }
+    }
+
+    @media only screen and (max-width: @breakDesktop) {
+
+        header {
+            h2 {
+                .font-size(38px);
+            }
+
+            p {
+                .font-size(20px);
+            }
+        }
+
+        .container > ul > li {
+            width: 340px;
+
+            &:nth-child(odd) {
+                margin-right: 20px;
+            }
+
+            h3 {
+                .font-size(32px);
+            }
+
+            p, a {
+                .font-size(20px);
+            }
+        }
+
+    }
+
+    @media only screen and (max-width: @breakTablet) {
+
+        header {
+            h2 {
+                .font-size(34px);
+            }
+
+            p {
+                .font-size(18px);
+            }
+        }
+
+        .container > ul > li {
+            width: 100%;
+
+            &:nth-child(odd) {
+                margin-right: 0;
+            }
+
+            h3 {
+                .font-size(28px);
+            }
+
+            p, a {
+                .font-size(18px);
+            }
+        }
+    }
+
+    @media only screen and (max-width: @breakMobileLandscape) {
+
+        header {
+            h2 {
+                .font-size(30px);
+            }
+
+            p {
+                .font-size(@largeFontSize);
+            }
+        }
+
+        .container > ul > li {
+            h3 {
+                .font-size(24px);
+            }
+
+            p, a {
+                .font-size(@largeFontSize);
+            }
         }
     }
 }
