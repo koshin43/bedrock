@@ -263,10 +263,12 @@ main {
 
     .container {
         position: relative;
+        min-height: 450px;
     }
 
     .inner-container {
         width: 440px;
+        padding-bottom: @baseLine * 3;
     }
 
     &.odd .inner-container {
@@ -294,7 +296,51 @@ main {
         margin-top: @baseLine;
     }
 
+    footer {
+        background: #f0f0f2;
+        display: none;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                .font-size(18px);
+                .inline-block;
+                margin: 0;
+                padding: @baseLine 0;
+
+                &:after {
+                    color: #56565a;
+                    content: '|';
+                    margin: 0 10px;
+                }
+
+                &:last-child:after {
+                    content: none;
+                }
+            }
+        }
+
+
+        a:link,
+        a:visited {
+            color: @linkBlue;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            color: @linkBlueHover;
+        }
+    }
+
     @media only screen and (max-width: @breakDesktop) {
+
+        .container {
+            min-height: 0;
+        }
 
         .inner-container {
             width: 320px;
@@ -337,6 +383,21 @@ main {
         .button {
             .font-size(20px);
         }
+
+        footer ul {
+            padding-bottom: @baseLine;
+
+            li {
+                .font-size(@largeFontSize);
+                display: block;
+                padding: @baseLine 0 0;
+
+                &:after {
+                    content: none;
+                    margin: 0;
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: @breakMobileLandscape) {
@@ -347,21 +408,24 @@ main {
     }
 }
 
-#vr {
-    padding-bottom: (@baseLine * 3);
+.developer #technologies > section {
 
+    footer {
+        display: block;
+    }
+}
+
+#vr {
     .container {
         background-image: url('/media/img/mozorg/technology/a-frame.svg');
         background-position: top left;
         background-repeat: no-repeat;
-        min-height: 386px;
     }
 
     @media only screen and (max-width: @breakDesktop) {
 
         .container {
             .background-size(360px 327px);
-            min-height: 327px;
         }
     }
 
@@ -370,7 +434,6 @@ main {
         .container {
             .background-size(260px 236px);
             background-position: top center;
-            min-height: 0;
             padding-top: 256px;
         }
     }
@@ -386,12 +449,17 @@ main {
 
 #gaming {
     background-color: #d6f1f5;
-    min-height: 512px;
+    z-index: 0;
+
+    .inner-container {
+        padding-top: @baseLine * 2;
+    }
 
     &:after {
         .at2x('/media/img/mozorg/technology/gaming.png', 512px, 512px);
+        .background-size(contain);
         background-color: #a3f3fe;
-        background-position: bottom right;
+        background-position: top right;
         background-repeat: no-repeat;
         content: '';
         height: 100%;
@@ -399,22 +467,10 @@ main {
         right: 0;
         top: 0;
         width: 50%;
-    }
-
-    .inner-container {
-        padding: (@baseLine * 2) 0 (@baseLine * 3);
-    }
-
-    @media only screen and (max-width: @breakDesktop) {
-        min-height: 340px;
-
-        &:after {
-            .background-size(340px 340px);
-        }
+        z-index: -1;
     }
 
     @media only screen and (max-width: @breakTablet) {
-        min-height: 0;
         padding-top: 256px;
 
         &:after {
@@ -427,7 +483,11 @@ main {
 }
 
 #iot {
-    padding: (@baseLine * 2) 0 (@baseLine * 3);
+    z-index: 0;
+
+    .inner-container {
+        padding-top: @baseLine * 2;
+    }
 
     &:before {
         .at2x('/media/img/mozorg/technology/iot.png', 650px, 512px);
@@ -439,6 +499,7 @@ main {
         position: absolute;
         top: 0;
         width: 50%;
+        z-index: -1;
     }
 
     @media only screen and (max-width: @breakTablet) {
@@ -468,8 +529,11 @@ main {
 
 #context-graph {
     background-color: #f9ddc7;
-    padding: (@baseLine * 2) 0 (@baseLine * 3);
-    min-height: 360px;
+    z-index: 0;
+
+    .inner-container {
+        padding: @baseLine * 2 0;
+    }
 
     &:after {
         background-image: url('/media/img/mozorg/technology/context-graph.svg');
@@ -482,11 +546,15 @@ main {
         right: 0;
         top: 0;
         width: 50%;
+        z-index: -1;
     }
 
     @media only screen and (max-width: @breakTablet) {
-        min-height: 0;
-        padding-top: 318px;
+        padding-top: 298px;
+
+        .inner-container {
+            padding-bottom: 0;
+        }
 
         &:after {
             .background-size(320px 258px);
@@ -497,7 +565,7 @@ main {
     }
 
     @media only screen and (max-width: @breakMobileLandscape) {
-        padding-top: 305px;
+        padding-top: 265px;
 
         &:after {
             .background-size(280px 225px);
@@ -507,22 +575,23 @@ main {
 }
 
 #rust {
-    padding: (@baseLine * 2) 0 (@baseLine * 3);
+
+    .inner-container {
+        padding-top: @baseLine * 2;
+    }
 
     .container {
         .background-size(348px 348px);
         background-image: url('/media/img/mozorg/technology/rust.svg');
-        background-position: top left 45px;
+        background-position: top 40px left 45px;
         background-repeat: no-repeat;
-        min-height: 348px;
     }
 
     @media only screen and (max-width: @breakDesktop) {
 
         .container {
             .background-size(320px 320px);
-            background-position: top left;
-            min-height: 320px;
+            background-position: top 40px left;
         }
     }
 
@@ -530,9 +599,8 @@ main {
 
         .container {
             .background-size(280px 280px);
-            background-position: top center;
-            padding-top: 300px;
-            min-height: 0;
+            background-position: top 40px center;
+            padding-top: 280px;
         }
     }
 
@@ -540,7 +608,7 @@ main {
 
         .container {
             .background-size(200px 200px);
-            padding-top: 220px;
+            padding-top: 200px;
         }
     }
 }
